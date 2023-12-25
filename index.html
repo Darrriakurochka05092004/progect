@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="one.js" async></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+			<div class="overlay"></div>
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Ваш заказ</h2>
+
+    <div id="selected-items">
+
+		</div>
+    <div id="total-amount">
+
+
+		</div>
+		
+    <br>
+    <form id="orderForm">
+      <div class="contact-container">
+        <h3>Контакты</h3>
+        <div class="contact-field-1">
+          <div class="contact-field">
+            <input type="text" id="name" placeholder="Имя" required>
+          </div>
+          <div class="contact-field">
+            <input type="tel" id="phone" placeholder="Телефон" required>
+          </div>
+        </div>
+        <div class="contact-field">
+          <input type="text" id="address" placeholder="Адрес доставки" required>
+        </div>
+      </div>
+      <br>
+      <div class="payment-options">
+        <h3>Способ оплаты:</h3>
+        <div class="payment-option">
+          <input type="radio" id="payment-cash" name="payment" value="Оплата наличными или картой курьеру" required>
+          <label for="payment-cash" class="payment-circle"></label>
+          <span>Оплата наличными или картой курьеру</span>
+        </div>
+        <div class="payment-option">
+          <input type="radio" id="payment-card" name="payment" value="Оплата картой онлайн на сайте" required>
+          <label for="payment-card" class="payment-circle"></label>
+          <span>Оплата картой онлайн на сайте</span>
+        </div>
+      </div>
+      <br>
+      <button type="submit">Оформить заказ</button>
+
+      <p>Нажимая на кнопку "Отправить заказ", вы соглашаетесь с <a href="https://example.com/privacy-policy">Политикой конфиденциальности</a>.</p>
+    </form>
+  </div>
+</div>
+
+		<header class="header"  id="header">
+			<nav class="nav">
+				<img class="logo" src="images/Logo.png" alt="Логотип" />
+				<ul class="menu">
+					<li>
+						<a href="#menu-link"  onclick="goToSection('pizza-menu')">меню</a>
+					</li>
+					<li>
+						<a href="#about-link" onclick="goToSection('about-us')">о нас</a>
+					</li>
+					<li>
+						<a href="#contact-link" onclick="goToSection('contacts')">контакты</a>
+					</li>
+				</ul>
+				<div class="contacts">
+					<img
+						class="telephone"
+						src="images/telephone.png"
+						alt="Логотип трубки"
+					/>
+					<div class="contacts_1">
+						<a class="phone-number" href="tel:79184326587"
+							>+7 (918) 432-65-87</a
+						>
+						<p class="datetime">
+							Ежедневно с<time datetime="2023-11-18T09:00"> 9:00</time> до
+							<time datetime="2023-11-18T18:00">23:00</time>.
+						</p>
+					</div>
+				</div>
+				<div class="basket">
+					<img src="images/Cart.png" alt="Корзина" class="Cart" id="cartImage" />
+					<div class="basket_1">
+						<strong>
+							<a href="#" id="orderLink">ВАШ ЗАКАЗ</a>
+						</strong>
+						<p>ваш заказ</p>
+					</div>
+				</div>
+				<button class="translate-button" id="translate-button">EN</button>
+			</nav>
+		</header>
+		<main>
+			<section class="gl_str">
+				<article class="gl_str_1">
+					<h1>Пицца на заказ</h1>
+					<p>
+						Бесплатная и быстрая доставка за час <br />
+						в любое удобное для вас время
+					</p>
+					<a href="#" id="menus-link" >Выбрать пиццу</a>
+				</article>
+				<img class="Group" src="images/Group 6.png" alt="Изображение пиццы" />
+			</section>
+			<section class="sale">
+				<article class="event_1">
+					<img src="images/Event 1.png" alt="Фото для акций" />
+					<h2>Закажи 2 пиццы – 3-я в подарок</h2>
+					<p>При заказе 2-х больших пицц – средняя пицца в подарок</p>
+				</article>
+				<article class="event_2">
+					<img src="images/Event 2.png" alt="Фото для акций" />
+					<h2>Напиток в подарок</h2>
+					<p>Скидка на заказ от 3 000 рублей + напиток в подарок</p>
+				</article>
+				<article class="event_3">
+					<img src="images/Event 3.png" alt="Фото для акций" />
+					<h2>25% при первом заказе</h2>
+					<p>Скидка новым клиентам!</p>
+				</article>
+			</section>
+			<section class="pizza-menu" id="pizza-menu">
+				<h1>Выберите пиццу</h1>
+				<nav>
+					<ul>
+						<li>
+							<a href="#все" id="все">все</a>
+						</li>
+						<li>
+							<a href="#острые" id="острые">острые</a>
+						</li>
+						<li>
+							<a href="#мясные" id="мясные">мясные</a>
+						</li>
+						<li>
+							<a href="#сырные" id="сырные">сырные</a>
+						</li>
+						<li>
+							<a href="#веганские" id="веганские">веганские</a>
+						</li>
+					</ul>
+				</nav>
+					<div class="memu-card-pizza">
+					<div class="card-pizza">
+  <div style="position: relative;">
+    <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+    <img src="images/01.png" alt="Pizza" class="pizza-images" width="100" height="100" />
+    <img src="images/004-hot-pepper-and-flame.png" alt="Pizza" class="pizza-icon" />
+  </div>
+  <p class="pizza-title-1">Итальянская</p>
+  <p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус, тесто, базилик</p>
+  <p class="pizza-sm">Размер, см:</p>
+  <div class="configurator">
+    <div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+    <div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+    <div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+  </div>
+  <p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+  <button onclick="addToCart({ image: 'images/01.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+</div>
+
+
+		<div id="selected-items"></div>
+		<p id="total-amount"></p>
+
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/02.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/010-ham.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Маргарита</p>
+					<p class="pizza-description">Тесто со шпинатом, молодой сыр и колбаски,<br> много колбасок</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/02.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+
+							<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/03.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/010-ham.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Барбекю</p>
+					<p class="pizza-description">Циплёнок (маленький кура), оливки,<br> моцарелла, соус барбекю</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/03.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/04.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/001-carrot.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Вегетарианская</p>
+					<p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус,<br> тесто, базилик</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/04.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+			</div>
+						<div class="memu-card-pizza">
+				<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/05.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/004-hot-pepper-and-flame.png" alt="Pizza" class="pizza-icon"/>
+						<img src="images/010-ham.png" alt="Pizza" class="pizza-icon" style="position: absolute; top: 30px; left: 0;"/>
+        </div>
+					<p class="pizza-title-1">Мясная</p>
+					<p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус,<br> тесто, базилик</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/05.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/06.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/001-carrot.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Овощная</p>
+					<p class="pizza-description">Тесто со шпинатом, молодой сыр и колбаски,<br> много колбасок</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/06.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/07.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/004-hot-pepper-and-flame.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Римская</p>
+					<p class="pizza-description">Циплёнок (маленький кура), оливки,<br> моцарелла, соус барбекю</p>
+					<p class="pizza-sm">Размер, см:</p>
+    <div class="configurator">
+        <div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/07.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/08.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/005-cheese.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">С грибами</p>
+					<p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус,<br> тесто, базилик</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/08.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+			</div>
+						<div class="memu-card-pizza">
+				<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/09.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/005-cheese.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Сырная</p>
+					<p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус,<br> тесто, базилик</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/09.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/10.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/005-cheese.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Четыре сыра</p>
+					<p class="pizza-description">Тесто со шпинатом, молодой сыр и колбаски,<br> много колбасок</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/10.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/11.png" alt="Pizza" class="pizza-images"/>
+        </div>
+					<p class="pizza-title-1">Пепперони Фреш</p>
+					<p class="pizza-description">Циплёнок (маленький кура), оливки,<br> моцарелла, соус барбекю</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/11.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+								<div class="card-pizza">
+        <div style="position: relative;">
+            <img src="images/Size.png" alt="Pizza" class="pizza-image" />
+            <img src="images/12.png" alt="Pizza" class="pizza-images"/>
+						<img src="images/010-ham.png" alt="Pizza" class="pizza-icon"/>
+        </div>
+					<p class="pizza-title-1">Ветчина и сыр</p>
+					<p class="pizza-description">Томат, шампиньон, сыр, оливки, чили, соус,<br> тесто, базилик</p>
+					<p class="pizza-sm">Размер, см:</p>
+				<div class="configurator">
+						<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">20 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">30 см</div>
+				<div class="pizza-size" onclick="updatePrice(this, { '20 см': 699, '30 см': 799, '40 см': 899 })">40 см</div>
+			</div>
+			<p class="pizza-price" id="pizza-price-1"><b>от 699 руб.</b></p>
+			<button onclick="addToCart({ image: 'images/12.png', prices: { '20 см': 699, '30 см': 799, '40 см': 899 } })">Заказать</button>
+				</div>
+			</div>
+			</section>
+			<section class="delivery">
+				<h1>Доставка и оплата</h1>
+				<div class="cards">
+					<div class="card">
+						<img src="images/icon-order.png" alt="Иконка заказа" />
+						<div class="card-content">
+							<dd>Заказ</dd>
+							<dt>
+								После оформления заказа мы свяжемся<br />с вами для уточнения
+								деталей.
+							</dt>
+						</div>
+					</div>
+					<div class="card">
+						<img src="images/icon-delivery.png" alt="Иконка доставки" />
+						<div class="card-content">
+							<dd>Доставка курьером</dd>
+							<dt>
+								Мы доставим вашу пиццу горячей.<br />Бесплатная доставка по
+								городу.
+							</dt>
+						</div>
+					</div>
+					<div class="card">
+						<img src="images/icon-pay.png" alt="Иконка оплаты" />
+						<div class="card-content">
+							<dd>Оплата</dd>
+							<dt>
+								Оплатить можно наличными или картой<br />курьеру. И золотом тоже
+								можно.
+							</dt>
+						</div>
+					</div>
+				</div>
+				</div>
+			</section>
+			<section class="about-us" id="about-us">
+				<dl>
+					<img src="images/about01.png" alt="Фото о нас" />
+					<div>
+						<dt>
+							Изготавливаем пиццу <br />по своим рецептам в лучших
+							<br />традициях
+						</dt>
+						<dd>
+							Наша пицца получается сочной, вкусной и главное хрустящей<br />
+							с нежной и аппетитной начинкой, готовим по своим<br />
+							итальянским рецептам
+						</dd>
+					</div>
+				</dl>
+
+				<dl>
+					<div>
+						<dt>
+							Используем только свежие<br />
+							ингридиенты
+						</dt>
+						<dd>
+							Ежедневно заготавливаем продукты и овощи для наших пицц,
+							<br />соблюдаем все сроки хранения
+						</dd>
+					</div>
+					<img src="images/about02.png" alt="Фото о нас" />
+				</dl>
+
+				<dl>
+					<img src="images/about03.png" alt="Фото о нас" />
+					<div>
+						<dt>
+							Доставка в течение 60 минут<br />
+							или заказ за нас счёт
+						</dt>
+						<dd>
+							Все наши курьеры – фанаты серии Need for Speed и призеры
+							<br />гонок World Rally Championship и World Superbike во всех
+							<br />категориях
+						</dd>
+					</div>
+				</dl>
+			</section>
+			<section class="ins">
+				<h1>Следите за нами в Instagram</h1>
+				<a href="#">@pizzamenu</a>
+				<div class="photo">
+					<div>
+						<img src="images/inst01.png" alt="Фото из инстаграмма" />
+						<img src="images/inst02.png" alt="Фото из инстаграмма" />
+						<img src="images/inst03.png" alt="Фото из инстаграмма" />
+						<img src="images/inst04.png" alt="Фото из инстаграмма" />
+						<img src="images/inst05.png" alt="Фото из инстаграмма" />
+					</div>
+					<div>
+						<img src="images/inst06.png" alt="Фото из инстаграмма" />
+						<img src="images/inst07.png" alt="Фото из инстаграмма" />
+						<img src="images/inst08.png" alt="Фото из инстаграмма" />
+						<img src="images/inst09.png" alt="Фото из инстаграмма" />
+						<img src="images/inst10.png" alt="Фото из инстаграмма" />
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<img src="images/logo-invert.png" alt="Логотип" />
+			<div class="contacts">
+				<a class="phone-numbers" href="tel:79184326587">+7 (918) 432-65-87</a>
+				<p class="datetime">
+					Ежедневно с<time datetime="2023-11-18T09:00"> 9:00</time> до
+					<time datetime="2023-11-18T18:00">23:00</time>.
+				</p>
+			</div>
+			<a class="konf" href="#">Политика конфиденциальности</a>
+		</footer>
+	</body>
+</html>
